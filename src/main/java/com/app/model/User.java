@@ -1,15 +1,34 @@
 package com.app.model;
 
-import org.springframework.stereotype.Component;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Component
+@Entity
+@Table (name="Users")
 public class User
 {
+	@Id
+	@Column (name = "user_id")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int userId;
+	
+	@Column (name = "username", unique = true, nullable = false)
 	private String username;
+	
+	@Column (name = "password", nullable = false)
 	private String password;
+	
+	@Column (name = "email", unique = true, nullable = false)
 	private String email;
+	
+	@Column (name = "display_name", nullable = false)
 	private String displayName;
+	
+	@Column (name = "display_image_url", nullable = false)
 	private String displayImg; 		// link to s3 for profile picture
 	
 	public User() {}
