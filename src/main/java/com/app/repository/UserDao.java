@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.app.model.User;
 
-@Repository("userDao")
+@Repository("userRepo")
 @Transactional
 public class UserDao {
 	
@@ -41,8 +41,12 @@ public class UserDao {
 		return sesFact.getCurrentSession().get(User.class, id);
 	}
 	
-	public List<User> selectAll(){
+	public List<User> selectAll() {
 		List<User> userList = sesFact.getCurrentSession().createQuery("from User", User.class).list();
 		return userList;
+	}
+	
+	public void deleteUser(User user) {
+		sesFact.getCurrentSession().remove(user);
 	}
 }
