@@ -2,15 +2,13 @@ package com.app.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table (name = "Users")
+@Table (name="Users")
 public class User
 {
 	@Id
@@ -21,16 +19,16 @@ public class User
 	@Column (name = "username", unique = true, nullable = false)
 	private String username;
 	
-	@Column (name = "password", unique = true, nullable = false)
+	@Column (name = "password", nullable = false)
 	private String password;
 	
 	@Column (name = "email", unique = true, nullable = false)
 	private String email;
 	
-	@Column (name = "display_name", unique = true, nullable = false)
+	@Column (name = "display_name", nullable = false)
 	private String displayName;
 	
-	@Column (name = "display_img", unique = true, nullable = false)
+	@Column (name = "display_image_url", nullable = false)
 	private String displayImg; 		// link to s3 for profile picture
 	
 	public User() {}
@@ -44,6 +42,24 @@ public class User
 		this.email = email;
 		this.displayName = displayName;
 		this.displayImg = displayImg;
+	}
+	
+	public User(String username, String password, String email, String displayName, String displayImg)
+	{
+		super();
+		this.username = username;
+		this.password = password;
+		this.email = email;
+		this.displayName = displayName;
+		this.displayImg = displayImg;
+	}
+	
+	public User(String username, String password, String email)
+	{
+		super();
+		this.username = username;
+		this.password = password;
+		this.email = email;
 	}
 
 	public User(int userId, String displayName, String displayImg)
