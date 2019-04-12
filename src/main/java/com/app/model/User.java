@@ -44,6 +44,16 @@ public class User
 		this.displayImg = displayImg;
 	}
 	
+	public User(String username, String password, String email, String displayName, String displayImg)
+	{
+		super();
+		this.username = username;
+		this.password = password;
+		this.email = email;
+		this.displayName = displayName;
+		this.displayImg = displayImg;
+	}
+	
 	public User(String username, String password, String email)
 	{
 		super();

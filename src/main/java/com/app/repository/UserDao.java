@@ -5,9 +5,9 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.hibernate.SessionFactory;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.app.model.User;
 
@@ -29,19 +29,19 @@ public class UserDao {
 	public UserDao() {
 	}
 	
-	public void insert(User user) {
+	public void insertUser(User user) {
 		sesFact.getCurrentSession().save(user);
 	}
 	
-	public void update(User user) {
+	public void updateUser(User user) {
 		sesFact.getCurrentSession().update(user);
 	}
 	
-	public User selectById(int id) {
+	public User selectUserById(int id) {
 		return sesFact.getCurrentSession().get(User.class, id);
 	}
 	
-	public List<User> selectAll() {
+	public List<User> selectAllUsers() {
 		List<User> userList = sesFact.getCurrentSession().createQuery("from User", User.class).list();
 		return userList;
 	}

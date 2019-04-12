@@ -32,27 +32,27 @@ public class UserDaoTest
 	public void insertUser()
 	{
 		User testUser = new User(0, "username", "password", "testUser@mail.com", "Display Name", "Image URL");
-		userDao.insert(testUser);	
+		userDao.insertUser(testUser);	
 	}
 	
 	@Test
 	public void updateUser()
 	{
-		User testUser = userDao.selectById(0);
+		User testUser = userDao.selectUserById(0);
 		System.out.println(testUser);
 	}
 	
 	@Test
 	public void selectUser()
 	{
-		User testUser = userDao.selectById(0);
+		User testUser = userDao.selectUserById(0);
 		System.out.println(testUser);
 	}
 	
 	@Test
 	public void selectAllUsers()
 	{
-		List<User> userList = userDao.selectAll();
+		List<User> userList = userDao.selectAllUsers();
 		System.out.println(userList);
 	}
 	
