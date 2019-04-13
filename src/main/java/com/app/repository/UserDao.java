@@ -5,10 +5,6 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.hibernate.SessionFactory;
-<<<<<<< HEAD
-=======
-
->>>>>>> dc6994eae62f1e2557fe784d17f42b563314e208
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -33,7 +29,6 @@ public class UserDao {
 	public UserDao() {
 	}
 	
-<<<<<<< HEAD
 	public void insertUser(User user) {
 		sesFact.getCurrentSession().save(user);
 	}
@@ -47,21 +42,6 @@ public class UserDao {
 	}
 	
 	public List<User> selectAllUsers() {
-=======
-	public void insert(User user) {
-		sesFact.getCurrentSession().save(user);
-	}
-	
-	public void update(User user) {
-		sesFact.getCurrentSession().update(user);
-	}
-	
-	public User selectById(int id) {
-		return sesFact.getCurrentSession().get(User.class, id);
-	}
-	
-	public List<User> selectAll() {
->>>>>>> dc6994eae62f1e2557fe784d17f42b563314e208
 		List<User> userList = sesFact.getCurrentSession().createQuery("from User", User.class).list();
 		return userList;
 	}
