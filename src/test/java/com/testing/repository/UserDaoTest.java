@@ -31,35 +31,35 @@ public class UserDaoTest
 	@Test
 	public void insertUser()
 	{
-		User testUser = new User(5, "gfdbcv", "pass", "jkfdmbnsfdjn@hvjfjbhfdhbj.com", "Cyka", "jfgjgf");
-		userDao.insert(testUser);	
+		User testUser = new User(0, "username", "password", "testUser@mail.com", "Display Name", "Image URL");
+		userDao.insertUser(testUser);	
 	}
 	
 	@Test
 	public void updateUser()
 	{
-		User testUser = userDao.selectById(0);
+		User testUser = userDao.selectUserById(0);
 		System.out.println(testUser);
 	}
 	
 	@Test
 	public void selectUser()
 	{
-		User testUser = userDao.selectById(0);
+		User testUser = userDao.selectUserById(0);
 		System.out.println(testUser);
 	}
 	
 	@Test
 	public void selectAllUsers()
 	{
-		List<User> userList = userDao.selectAll();
+		List<User> userList = userDao.selectAllUsers();
 		System.out.println(userList);
 	}
 	
 	@Test
 	public void deleteUser()
 	{
-		User testUser = new User(5, "killmeplz", "paspassdxgzbfgwordsword", "testUsreer@fzgfdmail.com", "Dispxzgfzsgffdsdlay Name", "Imagesdf URzgfcxL");
+		User testUser = new User(0, "username", "password", "testUser@mail.com", "Display Name", "Image URL");
 		userDao.deleteUser(testUser);
 	}
 }
