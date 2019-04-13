@@ -10,6 +10,7 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 	<context:annotation-config />
+<<<<<<< HEAD
 	
 	<context:component-scan
 		base-package="com.app.repository" />
@@ -23,6 +24,17 @@
 			value="oracle.jdbc.driver.OracleDriver" />
 		<property name="url"
 			value="jdbc:oracle:thin:@oracle-instance0304-awright.cx5jdxctrerc.us-east-2.rds.amazonaws.com:1521:ORCL" />
+=======
+	<context:component-scan base-package="com.app.repository" />
+
+	<tx:annotation-driven />
+
+	<!-- DATASOURCE -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@oracle-instance0304-awright.cx5jdxctrerc.us-east-2.rds.amazonaws.com:1521:ORCL" />
+>>>>>>> dc6994eae62f1e2557fe784d17f42b563314e208
 		<property name="username" value="cassion" />
 		<property name="password" value="stateandrevolution" />
 	</bean>

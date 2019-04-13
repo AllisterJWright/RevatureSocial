@@ -44,6 +44,7 @@ public class User
 		this.displayImg = displayImg;
 	}
 	
+<<<<<<< HEAD
 	public User(String username, String password, String email, String displayName, String displayImg)
 	{
 		super();
@@ -54,6 +55,8 @@ public class User
 		this.displayImg = displayImg;
 	}
 	
+=======
+>>>>>>> dc6994eae62f1e2557fe784d17f42b563314e208
 	public User(String username, String password, String email)
 	{
 		super();
