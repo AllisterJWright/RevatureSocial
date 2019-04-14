@@ -5,53 +5,51 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import com.app.model.User;
+import com.app.model.Post;
 import com.app.util.HibernateUtil;
 
-public class UserDao
+public class PostDao
 {
-	public UserDao() {}
-
-	public void insertUser(User user)
-	{
-		Session session = HibernateUtil.getSession();
-		Transaction tx = session.beginTransaction();
-
-		session.save(user);
-		tx.commit();
-	}
-
-	public User selectUserById(int id)
-	{
-		Session session = HibernateUtil.getSession();
-
-		return session.get(User.class, id);
-	}
-
-	public List<Character> selectAllUsers()
-	{
-		Session session = HibernateUtil.getSession();
-
-		return session.createQuery("from User").list();
-		// createQuery not deprecated; specifies bean, not table
-	}
+	public PostDao() {}
 	
-	public void updateUser(User user)
+	public void insertPost(Post post)
 	{
 		Session session = HibernateUtil.getSession();
 		Transaction tx = session.beginTransaction();
 
-		session.update(user);
+		session.save(post);
 		tx.commit();
 	}
 	
-	public void deleteUser(User user)
+	public Post selectPostById(int id)
+	{
+		Session session = HibernateUtil.getSession();
+
+		return session.get(Post.class, id);
+	}
+	
+	public List<Post> selectAllPosts()
+	{
+		Session session = HibernateUtil.getSession();
+
+		return session.createQuery("from Post").list();
+	}
+	
+	public void updatePost(Post post)
 	{
 		Session session = HibernateUtil.getSession();
 		Transaction tx = session.beginTransaction();
 
-		session.delete(user);
+		session.update(post);
 		tx.commit();
 	}
+	
+	public void deletePost(Post post)
+	{
+		Session session = HibernateUtil.getSession();
+		Transaction tx = session.beginTransaction();
 
+		session.delete(post);
+		tx.commit();
+	}
 }
