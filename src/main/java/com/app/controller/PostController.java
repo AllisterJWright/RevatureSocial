@@ -6,20 +6,20 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.app.service.UserService;
+import com.app.service.PostService;
 
 @Controller
-public class UserController
+public class PostController
 {
 	@Autowired
-	UserService userService;
+	PostService postService;
 	
 	// @CrossOrigin is used to handle the request from a different origin
 	@CrossOrigin(origins="http://localhost:4200")
 	@RequestMapping(value="/registerUser.app", method=RequestMethod.POST)
-	public String registerUser()
+	public String submitPost()
 	{
-		return "login";
+		return null;
 	}
 
 }
