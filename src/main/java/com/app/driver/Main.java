@@ -18,16 +18,16 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println("KILL ME");
-		insertInitialValues();
-		List<User> ua = udao.selectAll();
-		udao.selectAll().stream().forEach(System.out::println);
+		//insertInitialValues();
+		List<User> ua = udao.selectAllUsers();
+		udao.selectAllUsers().stream().forEach(System.out::println);
 
 	}
 
 	private static void insertInitialValues() {
 		// TODO Auto-generated method stub
 		User ua = new User(10, "Captain", "Merica", "jkghbjasfd@bhjfsDbhdsf.com", "nudesPlz", "IMAGE HAHAHA LIKE WE'LL GET THAT");
-		udao.insert(ua);
+		udao.insertUser(ua);
 	}
 
 }
