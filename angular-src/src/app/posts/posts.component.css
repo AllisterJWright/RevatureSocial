@@ -1,0 +1,26 @@
+img{
+    width: 400px;
+    height: 400px;
+}
+#Alpha {
+    text-align: center;
+    max-width: 500px;
+}
+.column {
+    float: left;
+    padding: 10px;
+  }
+  
+.left, .right {
+    width: 30%;
+  }
+  
+.middle {
+    width: 40%;
+  }
+  
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
