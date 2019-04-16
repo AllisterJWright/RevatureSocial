@@ -1,0 +1,31 @@
+package com.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.daoRepository.PostsDaoRepo;
+import com.models.Posts;
+import com.models.User;
+
+@Service
+public class PostsService {
+
+	@Autowired
+	PostsDaoRepo PDR;
+	
+	public List<Posts> getUserPost(User user){
+		return PDR.getPostByUser(user);
+	}
+	
+	public int insertPost(Posts post, User user) {
+		PDR.insert(post);
+		PDR.updatePost(post, user);
+		return 0;
+	}
+	
+	public List<Posts> getAllPost(){
+		return PDR.getAllPost();
+	}
+}

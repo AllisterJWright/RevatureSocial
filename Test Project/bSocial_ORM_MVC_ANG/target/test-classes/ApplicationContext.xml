@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+<!-- Beans initialization from Spring ORM Documentation -->
+
+<context:annotation-config/> <!-- allows beans to be configure using annotations -->
+<context:component-scan base-package="com.daoRepository"/> <!-- path for classes with annotations to be scanned -->
+<context:component-scan base-package="com.controller"/>
+<tx:annotation-driven/> <!-- enables Transaction Management to be configured in this file -->
+<mvc:annotation-driven /> <!-- Enables specified classes to use mvc notations  -->
+
+<!-- Neccessary Beans in the configuration file -->
+
+<!-- JDBC Connection Bean --><!-- Change to information on your database -->
+<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	 <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+	 <property name="url" value="jdbc:oracle:thin:@testdbinstance.cmseb0jui8wp.us-east-2.rds.amazonaws.com:1521:orcl"/>
+	 <property name="username" value="Admin"/>
+	 <property name="password" value="Password"/>
+	 </bean>
+	 
+	 <!-- Session Factory Bean -->
+	 <bean id="sessionFactory"
+	 class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+	 	<property name="dataSource" ref="dataSource"/> <!-- connects to Datasource bean -->
+	 	<property name="packagesToScan" value="com.models"/> <!-- shows which package to check for beans in -->
+	 	<property name="hibernateProperties"> <!-- configures hibernate properties (props)-->
+	 		<props>
+	 			<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop> <!-- hibernate dialect -->
+	 			<prop key="hibernate.show_sql">false</prop> <!-- shows sql statements in console -->
+	 			<prop key="hibernate.hbm2ddl.auto">update</prop> <!-- Action to take when sessionfactory is created -->
+	 		</props>
+	 	</property>
+	 </bean>
+	 
+	 <!-- Transaction Manager -->
+	 <bean id="transactionManager"
+	 class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+	 	<property name="sessionFactory" ref="sessionFactory"></property>
+	 </bean>
+	</beans>
