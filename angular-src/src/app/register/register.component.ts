@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from '../User';
+import { ConnectService } from '../connect.service';
 
 @Component({
   selector: 'app-register',
@@ -13,6 +14,7 @@ export class RegisterComponent implements OnInit {
   secondFormGroup : FormGroup;
   thirdFormGroup : FormGroup;
   fourthFormGroup : FormGroup;
+  Alpha : any
   
   @Input() user : User;
 
@@ -32,6 +34,8 @@ export class RegisterComponent implements OnInit {
     this.user = new User(Halves[0], Halves[1], this.secondFormGroup.value.secondCtrl,  this.thirdFormGroup.value.thirdCtrl, this.fourthFormGroup.value.fourthCtrl);
 
     console.log(this.user);
+
+  //  this.Alpha = this.conn.registerUser(this.user);
 
   }
 
