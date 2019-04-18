@@ -1,79 +1,20 @@
-<div class="row">
-<div class="column left"></div>
-<div class="column middle">
-  <div *ngFor="let P of posting">
-    <mat-card id="Alpha">
-        <mat-card-header>
-          <mat-card-title>{{P.Title}}</mat-card-title>
-          <mat-card-subtitle>{{P.SubText}}</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image [src]="P.Img" alt="GRASS POKEMON RULE!!!!"/>
-        <mat-card-content>
-          <p>
-           {{P.Desc}}
-          </p>
-          <hr>
-        </mat-card-content>
-      <mat-card-actions>
-          <button mat-button>LIKE</button>
-          {{P.Likes}}
-          <button mat-button>DISLIKE</button>
-    
-          <button mat-button>DECLARE WAR!</button>
-        </mat-card-actions>
-    
-      </mat-card>
-      <br>
-  
-  <!--
-  <mat-card id="Alpha" >
-    <mat-card-header>
-      <mat-card-title>Testing</mat-card-title>
-      <mat-card-subtitle>The ultimate test</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="http://pm1.narvii.com/5921/1ba8a6718bdfcf70cb11ebd50ab429d72a960d54_hq.jpg" alt="GRASS POKEMON RULE!!!!"/>
-    <mat-card-content>
-      <p>
-        If you read this entire sentence, CONGRATS, you have wasted precious seconds of your time.
-        If your still reading this i pity you, for you must not have much going on in your life.
-        Seriously. Stop reading. Its a waste of your valuable time and mine cause i have to keep typing past where people are willing to read.
-        now im getting irked. wouldn't you rathe be doing anything else but reading this paragraph that has nothing of value in it.
-        Don't think i won't come back and keep typing.
-        I will type up thousands of pages of nonsense before i allow anyone to read to the end. To be continued.
+<h1>Make a new post</h1>
 
-      </p>
-      <hr>
-    </mat-card-content>
-  <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>DISLIKE</button>
-
-      <button mat-button>DECLARE WAR!</button>
-    </mat-card-actions>
-
-  </mat-card>
-  <br>
-  <mat-card id="Alpha" >
-      <mat-card-header>
-        <mat-card-title>SETO FREAKING KAIBA</mat-card-title>
-        <mat-card-subtitle>The ultimate warrior</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="http://pm1.narvii.com/6347/d5e703cfc1f9b2e935afffe2ce423a26d24341a0_hq.jpg" alt="Seto Kaiba"/>
-      <mat-card-content>
-        <p>
-          The ultimate duelist. Bow before his majesty.  
-        </p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button>DISLIKE</button>
-  
-        <button mat-button>DECLARE WAR!</button>
-      </mat-card-actions>
-    </mat-card>
-  <br>
-  -->
+<form>
+  <div>
+    <label>Title</label>
+    <input type="text" placeholder="Title"/>
   </div>
-</div>
-<div class="column right"></div>
-</div>
+  <br>
+  <div>
+    <label>Image</label>
+    <img [src]='IUrl'>
+    <input type="file" #Image accept='image/*,video/*' (change)="handleFileInput($event.target.files)"/>
+  </div>
+  <br>
+  <div>
+    <label>Description</label>
+    <input type="text" placeholder="Description"/>
+  </div>  
+  <button>submit</button>
+</form>
