@@ -1,0 +1,20 @@
+<h1>Make a new post</h1>
+
+<form>
+  <div>
+    <label for="Title">Title</label>
+    <input type="text" placeholder="Title"/>
+  </div>
+  <br>
+  <div>
+    <label for="Image">Image</label>
+    <img [src]='IUrl'>
+    <input type="file" #Image accept='image/*,video/*' (change)="handleFileInput($event.target.files)"/>
+  </div>
+  <br>
+  <div>
+    <label for="Des">Description</label>
+    <input type="text" placeholder="Description"/>
+  </div>  
+  <button (click)="Testing()">submit</button>
+</form>
