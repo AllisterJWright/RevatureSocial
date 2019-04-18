@@ -5,6 +5,7 @@ CREATE TABLE Users(
     display_name VARCHAR2(120),
     display_image_url VARCHAR2(250)
 );
+SELECT*FROM Users;
 DROP TABLE Users;
 
 
