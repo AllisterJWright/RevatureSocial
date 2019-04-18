@@ -36,6 +36,13 @@ public class UserController {
 	}
 	
 	@CrossOrigin("http://localhost:4200")
+	@RequestMapping(value= "/Login.rev", method=RequestMethod.POST)
+	public User UpdateUser (@RequestBody String username, String password) {
+		User updatedUser = US.Login(username,password);
+		return updatedUser;
+	}
+	
+	@CrossOrigin("http://localhost:4200")
 	@RequestMapping(value= "/searchUser.rev", method=RequestMethod.GET, params = {"username"})
 	public User getUser(String username){
 		return US.findPerson(username);

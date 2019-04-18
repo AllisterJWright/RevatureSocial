@@ -39,13 +39,19 @@ public class UserDaoRepo {
 	}
 	
 	public int updateUser (User user) {
-		SF.getCurrentSession().createQuery("update Users where username= " + user.getUsername());
+		SF.getCurrentSession().createQuery("update Users set displayName= " + user.getDisplayImg() + " where " + user.getUsername()+" ");
 		return 1;
 	}
 	
 	public User selectUser (String username) {
 		return SF.getCurrentSession().get(User.class, username);
 		
+	}
+	
+	public User selectUser (String username, String password) {
+		List<User> users = SF.getCurrentSession().createQuery("from Users where username= " + username + ", where password= " + password).list();
+		User LoginUser = users.get(0);
+		return LoginUser;
 	}
 	
 //	public int selectAllUsers () {

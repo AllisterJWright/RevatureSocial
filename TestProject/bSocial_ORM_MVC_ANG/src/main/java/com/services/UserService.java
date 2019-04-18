@@ -25,6 +25,11 @@ public class UserService {
 		return 0;
 	}
 	
+	public User Login (String username, String password) {
+		User LoginUser = UDR.selectUser(username, password);
+		return LoginUser;
+	}
+	
 	public User update (User user) {
 		UDR.updateUser(user);
 		String username = user.getUsername();
