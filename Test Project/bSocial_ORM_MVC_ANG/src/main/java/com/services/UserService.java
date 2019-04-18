@@ -1,6 +1,9 @@
 package com.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
 
 import com.daoRepository.UserDaoRepo;
@@ -11,9 +14,9 @@ public class UserService {
 
 	@Autowired
 	UserDaoRepo UDR;
-	
-	public User findPerson (User user) {
-		User FoundUser = UDR.selectUser(user);
+
+	public User findPerson (String username) {
+		User FoundUser = UDR.selectUser(username);
 		return FoundUser;
 	}
 	
@@ -24,7 +27,8 @@ public class UserService {
 	
 	public User update (User user) {
 		UDR.updateUser(user);
-		User updatedUser = UDR.selectUser(user);
+		String username = user.getUsername();
+		User updatedUser = UDR.selectUser(username);
 		return updatedUser;
 	}
 	

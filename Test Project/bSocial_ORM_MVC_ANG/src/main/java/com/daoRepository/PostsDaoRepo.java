@@ -6,13 +6,24 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 //import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.models.Posts;
 import com.models.User;
 
-@Repository
-//@Transactional
+@Repository("PostsDaoRepo")
+@Transactional
+@EnableTransactionManagement
 public class PostsDaoRepo {
+	
+	static {
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
 	
 	@Autowired
 	private SessionFactory SF;

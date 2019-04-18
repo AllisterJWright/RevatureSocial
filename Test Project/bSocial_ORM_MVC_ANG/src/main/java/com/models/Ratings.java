@@ -12,6 +12,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 @Entity
 @Table(name= "Ratings")
 public class Ratings {
@@ -24,11 +27,13 @@ public class Ratings {
 	@Column(name= "value")
 	private String value;
 	
+	
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name= "Post_ID")
 	Posts post;
 	
-	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name= "username")
 	User user;
 	

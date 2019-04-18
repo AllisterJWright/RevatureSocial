@@ -26,24 +26,24 @@ public class User
 	@Column (name = "email", unique = true, nullable = false)
 	private String email;
 	
-	@Column (name = "display_name", nullable = false)
+	@Column (name = "display_name", nullable = true)
 	private String displayName;
 	
-	@Column (name = "display_image_url", nullable = false)
+	@Column (name = "display_image_url", nullable = true)
 	private String displayImg; 		// link to s3 for profile picture
 	
 	public User() {}
 
-	public User(int userId, String username, String password, String email, String displayName, String displayImg)
-	{
-		super();
-		//this.userId = userId;
-		this.username = username;
-		this.password = password;
-		this.email = email;
-		this.displayName = displayName;
-		this.displayImg = displayImg;
-	}
+//	public User(int userId, String username, String password, String email, String displayName, String displayImg)
+//	{
+//		super();
+//		//this.userId = userId;
+//		this.username = username;
+//		this.password = password;
+//		this.email = email;
+//		this.displayName = displayName;
+//		this.displayImg = displayImg;
+//	}
 	
 	public User(String username, String password, String email, String displayName, String displayImg)
 	{

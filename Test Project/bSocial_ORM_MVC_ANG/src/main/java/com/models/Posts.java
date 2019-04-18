@@ -14,6 +14,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 @Entity
 @Table(name="Posts")
 public class Posts {
@@ -24,24 +27,25 @@ public class Posts {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int Post_Id;
 	
-	@Column(name= "Title Column")
+	@Column(name= "Title_Column")
 	private String Title;
 	
 	@Column(name= "Image")
-	private Object image;
+	private String image;
 	
 	@Column(name= "Caption")
 	private String caption;
 	
 	@ManyToOne(fetch= FetchType.LAZY, cascade= CascadeType.ALL)
-	@JoinColumn(name= "username", nullable = false)
-	private String username;
+	@JoinColumn(name= "username")
+	private User user;
 	
 	@OneToMany(fetch= FetchType.EAGER, cascade= CascadeType.ALL)
 	@JoinColumn(name= "Comment_ID")
 	private List<Comments> comments;
 	
-	@OneToMany(fetch= FetchType.EAGER, cascade= CascadeType.ALL)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@OneToMany(cascade= CascadeType.ALL)
 	@JoinColumn(name= "Ratings_ID")
 	private List<Ratings> ratings;	
 
@@ -62,7 +66,7 @@ public class Posts {
 	public Object getImage() {
 		return image;
 	}
-	public void setImage(Object image) {
+	public void setImage(String image) {
 		this.image = image;
 	}
 	public String getCaption() {
@@ -71,24 +75,26 @@ public class Posts {
 	public void setCaption(String caption) {
 		this.caption = caption;
 	}
-	public String getUsername() {
-		return username;
+	public User getUser() {
+		return user;
 	}
-	
 
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 	//constructors
 	public Posts() {
 		super();
 	}
 
-	public Posts(int post_Id, String title, Object image, String caption, String username) {
+	public Posts(int post_Id, String title, String image, String caption, User user) {
 		super();
 		Post_Id = post_Id;
 		Title = title;
 		this.image = image;
 		this.caption = caption;
-		this.username = username;
+		this.user = user;
 	}
 	
 }

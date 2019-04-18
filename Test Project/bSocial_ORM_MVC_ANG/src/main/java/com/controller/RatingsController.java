@@ -1,19 +1,20 @@
 package com.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+//import org.springframework.web.bind.annotation.RestController;
 
-import com.models.Comments;
+//import com.models.Comments;
 import com.models.Posts;
 import com.models.Ratings;
 import com.models.User;
 import com.services.RatingService;
 
-@RestController
+@Controller
 public class RatingsController {
 	
 	@Autowired

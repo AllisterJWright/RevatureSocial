@@ -6,17 +6,30 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 //import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.models.Comments;
 import com.models.Posts;
 import com.models.User;
 
-@Repository
-//@Transactional
+@Repository("CommentsDaoRepo")
+@Transactional
+@EnableTransactionManagement
 public class CommentsDaoRepo {
+	
+	static {
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
 	
 	@Autowired
 	private SessionFactory SF;
+	
+	public CommentsDaoRepo() {}
 	
 	public int insert(Comments comment) { //not mapped to post or user just yet
 		SF.getCurrentSession().save(comment);
