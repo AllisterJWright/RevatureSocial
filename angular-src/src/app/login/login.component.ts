@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConnectService } from '../connect.service';
 
 @Component({
   selector: 'app-login',
@@ -9,10 +10,16 @@ export class LoginComponent implements OnInit {
 
 
 
-  constructor() { }
+  constructor(private conn : ConnectService) { }
 
   ngOnInit() {
 
   }
+
+  Log( ULog : any){
+    this.conn.loginUser(ULog.value);
+    console.log(ULog.value);
+  }
+  
 
 }

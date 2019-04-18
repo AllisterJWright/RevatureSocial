@@ -14,6 +14,8 @@ import { PostsComponent } from './posts/posts.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 import { ForgotComponent } from './forgot/forgot.component';
+import { HttpClientModule } from '@angular/common/http'
+import { ConnectService } from './connect.service';
 
 @NgModule({
   declarations: [
@@ -37,9 +39,10 @@ import { ForgotComponent } from './forgot/forgot.component';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ ConnectService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConnectService } from '../connect.service';
 
 @Component({
   selector: 'app-forgot',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ForgotComponent implements OnInit {
 
-  constructor() { }
+  constructor(private conn : ConnectService) { }
 
   ngOnInit() {
+  }
+
+  ForgotPass(FP : any){
+    
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConnectService } from '../connect.service';
 
 @Component({
   selector: 'app-profile',
@@ -10,7 +11,7 @@ export class ProfileComponent implements OnInit {
   fileToUpload : File = null;
 
 
-  constructor() { }
+  constructor(private conn : ConnectService) { }
 
   ngOnInit() {
   }

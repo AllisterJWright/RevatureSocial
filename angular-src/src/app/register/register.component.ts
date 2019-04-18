@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
   
   @Input() user : User;
 
-  constructor(private _formBuilder: FormBuilder) { }
+  constructor(private _formBuilder: FormBuilder, private conn : ConnectService) { }
 
   ngOnInit() {
 
@@ -35,7 +35,7 @@ export class RegisterComponent implements OnInit {
 
     console.log(this.user);
 
-  //  this.Alpha = this.conn.registerUser(this.user);
+  this.Alpha = this.conn.registerUser(this.user);
 
   }
 

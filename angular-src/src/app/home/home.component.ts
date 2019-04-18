@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Posting } from '../Posting';
 import { Storage } from '../Temp';
+import { ConnectService } from '../connect.service';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,7 @@ export class HomeComponent implements OnInit {
 
   posting : Posting[] = Storage;
 
-  constructor() { }
+  constructor(private conn : ConnectService) { }
 
   ngOnInit() {
   }
