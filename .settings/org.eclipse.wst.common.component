@@ -2,8 +2,11 @@
     <wb-module deploy-name="bSocial">
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources" tag="defaultRootSource"/>
+<<<<<<< HEAD
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/resources"/>
+=======
+>>>>>>> 48b15b1f1d4fdda1374f30ad039f383eb3413283
         <property name="context-root" value="bSocial"/>
         <property name="java-output-path" value="/bSocial/target/classes"/>
     </wb-module>
