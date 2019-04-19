@@ -1,17 +1,16 @@
 export class User{
-    FName : string;
-    LName : string;
-    Email : string;
-    UName : string;
-    Pic : string;
-    Other : string;
+    username : string;
+    password : string;
+    email : string;
+    displayName : string;
+    displayImg : string;
     
-    constructor(Fname: string, Lname: string, email: string, Uname: string, other: string){
-        this.FName = Fname;
-        this.LName = Lname;
-        this.Email = email;
-        this.UName = Uname;
-        this.Other = other;
+    constructor(username : string, password : string, email : string, displayName : string, displayImg : string){
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.displayName = displayName;
+        this.displayImg = displayImg;
     }
 
 }
