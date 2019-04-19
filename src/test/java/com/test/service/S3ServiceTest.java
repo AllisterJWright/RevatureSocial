@@ -1,5 +1,6 @@
 package com.test.service;
 
+<<<<<<< HEAD
 import static org.junit.Assert.fail;
 
 import java.io.File;
@@ -54,4 +55,9 @@ public class S3ServiceTest
 			fail("IOException occurred");
 		}
 	}
+=======
+public class S3ServiceTest
+{
+
+>>>>>>> 85dcb03c4f19e58456beff3fe97b8f5f9d901c9d
 }
