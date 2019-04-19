@@ -16,7 +16,7 @@ public class PostController
 	
 	// @CrossOrigin is used to handle the request from a different origin
 	@CrossOrigin(origins="http://localhost:4200")
-	@RequestMapping(value="/registerUser.app", method=RequestMethod.POST)
+	@RequestMapping(value="/submitPost.app", method=RequestMethod.POST)
 	public String submitPost()
 	{
 		return null;

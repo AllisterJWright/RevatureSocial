@@ -1,6 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from '../User';
+import { ConnectService } from '../connect.service';
+import { Router } from '@angular/router';
+import { routerNgProbeToken } from '@angular/router/src/router_module';
 
 @Component({
   selector: 'app-register',
@@ -13,10 +16,11 @@ export class RegisterComponent implements OnInit {
   secondFormGroup : FormGroup;
   thirdFormGroup : FormGroup;
   fourthFormGroup : FormGroup;
+  //Alpha : any
   
   @Input() user : User;
 
-  constructor(private _formBuilder: FormBuilder) { }
+  constructor(private _formBuilder: FormBuilder, private conn : ConnectService, private router: Router) { }
 
   ngOnInit() {
 
@@ -32,6 +36,16 @@ export class RegisterComponent implements OnInit {
     this.user = new User(Halves[0], Halves[1], this.secondFormGroup.value.secondCtrl,  this.thirdFormGroup.value.thirdCtrl, this.fourthFormGroup.value.fourthCtrl);
 
     console.log(this.user);
+
+  this.conn.registerUser(this.user).subscribe(
+    res => {
+      this.router.navigate(['/login']);
+    },
+    error => {
+      alert("Username already taken");
+    }
+
+  );
 
   }
 
