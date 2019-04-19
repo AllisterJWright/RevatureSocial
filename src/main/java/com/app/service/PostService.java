@@ -2,9 +2,12 @@ package com.app.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.app.model.Post;
 import com.app.repository.PostDao;
 
+@Service
 public class PostService
 {
 	PostDao postDao = new PostDao();
