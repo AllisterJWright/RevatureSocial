@@ -36,18 +36,17 @@ public class Posts {
 	@Column(name= "Caption")
 	private String caption;
 	
-	@ManyToOne(fetch= FetchType.LAZY, cascade= CascadeType.ALL)
-	@JoinColumn(name= "username")
-	private User user;
+	@Column(name= "username")
+	private String username;
 	
-	@OneToMany(fetch= FetchType.EAGER, cascade= CascadeType.ALL)
-	@JoinColumn(name= "Comment_ID")
-	private List<Comments> comments;
-	
-	@LazyCollection(LazyCollectionOption.FALSE)
-	@OneToMany(cascade= CascadeType.ALL)
-	@JoinColumn(name= "Ratings_ID")
-	private List<Ratings> ratings;	
+//	@OneToMany(fetch= FetchType.EAGER, cascade= CascadeType.ALL)
+//	@JoinColumn(name= "Comment_ID")
+//	private List<Comments> comments;
+//	
+//	@LazyCollection(LazyCollectionOption.FALSE)
+//	@OneToMany(cascade= CascadeType.ALL)
+//	@JoinColumn(name= "Ratings_ID")
+//	private List<Ratings> ratings;	
 
 	
 	
@@ -75,12 +74,13 @@ public class Posts {
 	public void setCaption(String caption) {
 		this.caption = caption;
 	}
-	public User getUser() {
-		return user;
+	
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	//constructors
@@ -88,13 +88,13 @@ public class Posts {
 		super();
 	}
 
-	public Posts(int post_Id, String title, String image, String caption, User user) {
+	public Posts(int post_Id, String title, String image, String caption, String username) {
 		super();
 		Post_Id = post_Id;
 		Title = title;
 		this.image = image;
 		this.caption = caption;
-		this.user = user;
+		this.username = username;
 	}
 	
 }

@@ -53,8 +53,6 @@ public class UserDaoRepo {
 	}
 	
 	public User selectUser(String email, String password) {
-		//User user = sesFact.getCurrentSession().get(User.class, email);
-//		List<User> uList = sesFact.getCurrentSession().createQuery("from User", User.class).list();
 		 Query<User> query = SF.getCurrentSession().createNativeQuery("Select * From Users Where Email= :email AND Password= :password")
 				 .addEntity(User.class)
 				 .setParameter("email", email)

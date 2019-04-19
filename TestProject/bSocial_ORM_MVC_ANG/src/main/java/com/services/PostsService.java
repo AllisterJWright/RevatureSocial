@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.daoRepository.PostsDaoRepo;
 import com.daoRepository.RatingsDaoRepo;
+import com.daoRepository.UserDaoRepo;
 import com.models.Posts;
 import com.models.User;
 
@@ -18,13 +19,12 @@ public class PostsService {
 	@Autowired
 	PostsDaoRepo PDR;
 	
-	public List<Posts> getUserPost(User user){
-		return PDR.getPostByUser(user);
+	public List<Posts> getUserPost(String username){
+		return PDR.getPostByUser(username);
 	}
 	
-	public int insertPost(Posts post, User user) {
+	public int insertPost(Posts post) {
 		PDR.insert(post);
-		PDR.updatePost(post, user);
 		return 0;
 	}
 	

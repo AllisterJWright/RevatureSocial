@@ -20,29 +20,25 @@ public class Comments {
 	@GeneratedValue (strategy = GenerationType.AUTO)
 	private int CommentId;
 	
-	@ManyToOne (fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name= "Post_ID")
-	private Posts post;
+	@Column(name= "Post_ID")
+	private int postID;
 	
-	@ManyToOne (fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name= "username")
-	private User user;
+	@Column(name= "username")
+	private String username;
 	
 	@Column(name= "Message")
 	private String comment;
 	
 	
 	//Getters
-	public Posts getPost() {
-		return post;
-	}
+	
 
 	public int getCommentId() {
 		return CommentId;
 	}
 
-	public User getUser() {
-		return user;
+	public String getUser() {
+		return username;
 	}
 
 	public String getComment() {
@@ -60,25 +56,25 @@ public class Comments {
 	
 	
 
-	public Comments(Posts post, User user, String comment) {
+	public Comments(int postID, String user, String comment) {
 		super();
-		this.post = post;
-		this.user = user;
+		this.postID = postID;
+		this.username = user;
 		this.comment = comment;
 	}
 
-	public Comments(int commentId, Posts post, User user, String comment) {
+	public Comments(int commentId, int postID, String user, String comment) {
 		super();
 		CommentId = commentId;
-		this.post = post;
-		this.user = user;
+		this.postID = postID;
+		this.username = user;
 		this.comment = comment;
 	}
 
 	@Override
 	public String toString() {
-		return "Comments [CommentId=" + CommentId + ", post=" + post + ", user=" + user + ", comment=" + comment + "]";
+		return "Comments [CommentId=" + CommentId + ", postID=" + postID + ", username=" + username + ", comment="
+				+ comment + "]";
 	}
-
 	
 }

@@ -3,6 +3,7 @@ package com.daoRepository;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 //import org.springframework.transaction.annotation.Transactional;
@@ -37,15 +38,19 @@ public class PostsDaoRepo {
 		return 0;
 	}
 	
-	public int updatePost (Posts post, User user) {
-		SF.getCurrentSession().createQuery("update Posts set username= " + user.getUsername());
-		return 0;
-	}
+//	public int updatePost (Posts post, String username) {
+//		SF.getCurrentSession().createQuery("update Posts set username= " + username());
+//		return 0;
+//	}
 	
-	public List<Posts> getPostByUser (User user) {
-		List<Posts> posts = SF.getCurrentSession().createQuery("from Posts where username=" + user, Posts.class).list();
+	public List<Posts> getPostByUser (String username) {
+		 Query<Posts> query = SF.getCurrentSession().createNativeQuery("Select * From Posts Where username= :username")
+				 .addEntity(Posts.class)
+				 .setParameter("username", username);
+		List<Posts> posts = query.list();
 		return posts;
 	}
+	
 	
 	public List<Posts> getAllPost () {
 		List<Posts> posts = SF.getCurrentSession().createQuery("from Posts", Posts.class).list();

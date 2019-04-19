@@ -74,7 +74,7 @@
     		<scope>runtime</scope>
 		</dependency>
 		
-		
+		<!--
 		<dependency>
     		<groupId>com.googlecode.jsontoken</groupId>
     		<artifactId>jsontoken</artifactId>
@@ -85,6 +85,12 @@
     		<artifactId>guava</artifactId>
     		<version>18.0</version>
 		</dependency>
+		<dependency>
+    		<groupId>io.jsonwebtoken</groupId>
+    		<artifactId>jjwt</artifactId>
+    		<version>0.2</version>
+		</dependency>
+		-->
 		
   </dependencies>
   

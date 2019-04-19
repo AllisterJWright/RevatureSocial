@@ -7,6 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 //import org.springframework.web.bind.annotation.RestController;
 
@@ -21,21 +24,21 @@ public class PostsController {
 	PostsService PS;
 	
 	@CrossOrigin("http://localhost:4200")
-	@PostMapping(value="/autoAddPosts.rev" )
-	public @ResponseBody List<Posts> getAllPosts (){
+	@RequestMapping(value="/autoAddPosts.rev" , method=RequestMethod.POST)
+	public List<Posts> getAllPosts (){
 		return PS.getAllPost();
 	} 
 	
 	@CrossOrigin(origins="http://localhost:4200")
-	@PostMapping(value="{user}/autoAddUserPosts.rev")
-	public @ResponseBody List<Posts> getUserPost (@PathVariable(value= "user") User user){
-		return PS.getUserPost(user);
+	@RequestMapping(value="/autoAddUserPosts.rev" , method=RequestMethod.POST)
+	public List<Posts> getUserPost (@RequestBody String username){
+		return PS.getUserPost(username);
 	}
 	
 	@CrossOrigin(origins="http://localhost:4200")
-	@PostMapping(value="{user,post}/autoAddUserPosts.rev")
-	public @ResponseBody int insertPost (@PathVariable(value= "user") User user, @PathVariable(value= "post") Posts post) {
-		PS.insertPost(post, user);
+	@RequestMapping(value="/addUserPosts.rev" , method=RequestMethod.POST)
+	public int insertPost (@RequestBody Posts post) {
+		PS.insertPost(post);
 		return 0;
 	}
 	
