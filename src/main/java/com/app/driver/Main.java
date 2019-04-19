@@ -1,5 +1,6 @@
 package com.app.driver;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.context.ApplicationContext;
@@ -7,6 +8,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.app.model.User;
 import com.app.repository.UserDao;
+import com.app.service.S3Service;
 
 public class Main {
 	static {System.out.println("Before");}
@@ -19,6 +21,15 @@ public class Main {
 		// TODO Auto-generated method stub
 		System.out.println("APPLICATION START");
 		//insertInitialValues();
+		try
+		{
+			System.out.println(S3Service.getImage("inigo.jpeg").toString());
+		}
+		catch (IOException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		List<User> ua = udao.selectAllUsers();
 		udao.selectAllUsers().stream().forEach(System.out::println);
 		System.out.println("DONE");

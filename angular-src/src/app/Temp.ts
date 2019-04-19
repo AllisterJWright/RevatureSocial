@@ -1,4 +1,5 @@
 import { Posting } from './Posting';
+import { User } from './User';
 
 export const Storage : Posting[] = [
 
@@ -11,3 +12,9 @@ export const Storage : Posting[] = [
 
 
 ]
+
+// export const All_U : User[] =[
+//     // { FName: 'Seto', LName: 'Kaiba', Email:'BlueEyes@yahoo.com',UName:'CEO_Kaiba', Pic:'http://pm1.narvii.com/6347/d5e703cfc1f9b2e935afffe2ce423a26d24341a0_hq.jpg', Other:null },
+//     // { FName: 'Yugi', LName: 'Moto', Email:'DarkMagician@yahoo.com',UName:'KingOfGames', Pic:'http://orig10.deviantart.net/9bd4/f/2015/187/0/d/yugi_muto_by_fabry33-d907vtf.png', Other:null },
+//     // { FName: 'Joey', LName: 'Wheeler', Email:'BlackDragon@yahoo.com',UName:'KidwithHeart', Pic:'https://i.pinimg.com/736x/4d/55/e3/4d55e3297933af5700a9b484cf39866f.jpg', Other:null },
+// ]
