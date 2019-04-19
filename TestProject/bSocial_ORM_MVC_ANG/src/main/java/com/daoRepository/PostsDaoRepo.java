@@ -35,7 +35,7 @@ public class PostsDaoRepo {
 	
 	public int insert(Posts post) {
 		SF.getCurrentSession().save(post);
-		return 0;
+		return 1;
 	}
 	
 //	public int updatePost (Posts post, String username) {

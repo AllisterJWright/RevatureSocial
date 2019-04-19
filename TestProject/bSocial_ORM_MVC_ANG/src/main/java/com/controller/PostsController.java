@@ -24,7 +24,7 @@ public class PostsController {
 	PostsService PS;
 	
 	@CrossOrigin("http://localhost:4200")
-	@RequestMapping(value="/autoAddPosts.rev" , method=RequestMethod.POST)
+	@RequestMapping(value="/autoAddPosts.rev" ,  method=RequestMethod.POST)
 	public List<Posts> getAllPosts (){
 		return PS.getAllPost();
 	} 
@@ -38,7 +38,11 @@ public class PostsController {
 	@CrossOrigin(origins="http://localhost:4200")
 	@RequestMapping(value="/addUserPosts.rev" , method=RequestMethod.POST)
 	public int insertPost (@RequestBody Posts post) {
-		PS.insertPost(post);
+		
+		Posts Newpost = new Posts(post.getTitle(),post.getImage(),post.getCaption());
+		System.out.println(post);
+		PS.insertPost(Newpost);
+		System.out.println(Newpost);
 		return 0;
 	}
 	

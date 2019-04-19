@@ -60,9 +60,9 @@ public class Posts {
 		return Title;
 	}
 	public void setTitle(String title) {
-		Title = title;
+		this.Title = title;
 	}
-	public Object getImage() {
+	public String getImage() {
 		return image;
 	}
 	public void setImage(String image) {
@@ -88,10 +88,25 @@ public class Posts {
 		super();
 	}
 
+	public Posts(String title, String image, String caption) {
+		super();
+		this.Title = title;
+		this.image = image;
+		this.caption = caption;
+	}
+	
+	public Posts(String title, String image, String caption, String username) {
+		super();
+		this.Title = title;
+		this.image = image;
+		this.caption = caption;
+		this.username = username;
+	}
+
 	public Posts(int post_Id, String title, String image, String caption, String username) {
 		super();
-		Post_Id = post_Id;
-		Title = title;
+		this.Post_Id = post_Id;
+		this.Title = title;
 		this.image = image;
 		this.caption = caption;
 		this.username = username;

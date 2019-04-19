@@ -28,18 +28,19 @@ CREATE TABLE Posts(
     Image VARCHAR2(150),
     Caption VARCHAR2 (200),
     username VARCHAR2 (40),
-    Comment_ID Number,
-    Ratings_ID Number,
     
-    CONSTRAINT fk_fkey4 FOREIGN KEY (username) REFERENCES Users (username),
-    CONSTRAINT fk_fkey5 FOREIGN KEY (Comment_ID) REFERENCES Comments (Comment_ID),
-    CONSTRAINT fk_key6 FOREIGN KEY (Ratings_ID) REFERENCES Ratings (Ratings_ID)
+    CONSTRAINT fk_fkey4 FOREIGN KEY (username) REFERENCES Users (username)
 );
+INSERT INTO Posts(Post_ID,Title_Column,Image,Caption,username)VALUES(102,'new post','new image', 'new caption','User1');
 
 ALTER TABLE Posts DROP CONSTRAINT fk_fkey4;
 ALTER TABLE Posts DROP CONSTRAINT fk_fkey5;
 ALTER TABLE Posts DROP CONSTRAINT fk_key6;
+ALTER TABLE Posts DROP COLUMN Comment_ID;
+ALTER TABLE Posts DROP COLUMN Ratings_ID;
 DROP TABLE Posts;
+SELECT*FROM Posts;
+
 
 CREATE TABLE Comments(
     Comment_ID Number PRIMARY KEY,
